@@ -1,6 +1,8 @@
-:80 {
-  root * /app/public
+:{$PORT} {
+  root * /app       
+  try_files {path} {path}/ /index.html
   file_server
+
   header {
     Content-Security-Policy "default-src 'self' data: blob: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; connect-src * ws:; img-src * data: blob:; style-src 'self' 'unsafe-inline' https: data:; font-src * data: blob: https:;"
   }
